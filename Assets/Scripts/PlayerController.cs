@@ -1,5 +1,6 @@
-using UnityEngine;
+
 using System.Collections;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,10 +12,7 @@ public class PlayerController : MonoBehaviour
     float speedMultiplier = 1f;
     Coroutine boost;
 
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+    void Awake() => rb = GetComponent<Rigidbody>();
 
     void Update()
     {
