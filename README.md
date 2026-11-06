@@ -1,22 +1,22 @@
-# \# 🎮 Unity 3D Arena Game - Project Documentation
+#  🎮 Unity 3D Arena Game - Project Documentation
 
 # 
 
-# \## 🏗️ Lecture 07: Base Build (Foundation)
+# 🏗️ Lecture 07: Base Build (Foundation)
 
-# \*   \*\*Core Mechanics:\*\* Player movement (`Rigidbody`), health system, and UI.
+#  \*\*Core Mechanics:\*\* Player movement (`Rigidbody`), health system, and UI.
 
-# \*   \*\*Enemies \& Hazards:\*\* Patrolling enemies using waypoints and hazards that deal damage/knockback.
+#   \*\*Enemies \& Hazards:\*\* Patrolling enemies using waypoints and hazards that deal damage/knockback.
 
-# \*   \*\*Pickups:\*\* Coins (spawning/collecting) and Power-ups (Speed/Shield).
+#    \*\*Pickups:\*\* Coins (spawning/collecting) and Power-ups (Speed/Shield).
 
 # 
 
-# \## 🏟️ Level 1: "Welcome to the Arena"
+#  🏟️ Level 1: "Welcome to the Arena"
 
-# \*   \*\*Objective:\*\* Collect 5 coins to win. No timer, no enemies.
+#   \*\*Objective:\*\* Collect 5 coins to win. No timer, no enemies.
 
-# \*   \*\*Gameplay:\*\* Focuses on learning controls. Touching hazards reduces health/lives. 
+#    \*\*Gameplay:\*\* Focuses on learning controls. Touching hazards reduces health/lives. 
 
 # \*   \*\*UI:\*\* Score, Lives, Win/Lose panels. Buttons simply restart the level.
 
