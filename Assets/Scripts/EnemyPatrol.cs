@@ -1,20 +1,17 @@
-
 using UnityEngine;
 
-public enum PatrolMode
-{
-    Loop,
-    PingPong,
-    Random
-}
+public enum PatrolMode { Loop, PingPong, Random }
 
 public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField] Transform[] points;
     [SerializeField] PatrolMode mode = PatrolMode.Loop;
-    [SerializeField] float speed = 2.6f, waitTime = 0f, turnSpeed = 360f;
+    [SerializeField] float speed = 2.6f;
+    [SerializeField] float waitTime = 0f;
+    [SerializeField] float turnSpeed = 360f;
 
-    int index, step = 1;
+    int index;
+    int step = 1;
     float waitUntil;
 
     void Update()
@@ -24,15 +21,18 @@ public class EnemyPatrol : MonoBehaviour
         Vector3 target = points[index].position;
         Vector3 toTarget = target - transform.position;
 
+        // Move toward the current waypoint
         transform.position = Vector3.MoveTowards(
             transform.position, target, speed * Time.deltaTime);
 
+        // Rotate to face the direction of travel
         if (toTarget != Vector3.zero)
             transform.rotation = Quaternion.RotateTowards(
                 transform.rotation,
                 Quaternion.LookRotation(toTarget),
                 turnSpeed * Time.deltaTime);
 
+        // Reached the waypoint — advance to the next one
         if (transform.position == target)
         {
             index = NextIndex();
@@ -47,16 +47,13 @@ public class EnemyPatrol : MonoBehaviour
 
         if (mode == PatrolMode.PingPong)
         {
-            if (index + step < 0 || index + step >= points.Length)
-                step = -step;
-
+            int ahead = index + step;
+            if (ahead < 0 || ahead >= points.Length) step = -step;
             return index + step;
         }
 
+        // Random — never pick the same point twice in a row
         int next = Random.Range(0, points.Length);
-
-        return next == index
-            ? (next + 1) % points.Length
-            : next;
+        return next == index ? (next + 1) % points.Length : next;
     }
 }

@@ -1,5 +1,4 @@
-
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,7 +7,6 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody rb;
     Vector3 input;
-
     float speedMultiplier = 1f;
     Coroutine boost;
 
@@ -18,30 +16,21 @@ public class PlayerController : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-
-        input = Vector3.ClampMagnitude(
-            new Vector3(h, 0f, v), 1f);
+        input = Vector3.ClampMagnitude(new Vector3(h, 0f, v), 1f);
     }
 
-    void FixedUpdate()
-    {
-        rb.AddForce(input * moveForce * speedMultiplier);
-    }
+    void FixedUpdate() => rb.AddForce(input * moveForce * speedMultiplier);
 
     public void BoostSpeed(float multiplier, float seconds)
     {
-        if (boost != null)
-            StopCoroutine(boost);
-
+        if (boost != null) StopCoroutine(boost);
         boost = StartCoroutine(Boost(multiplier, seconds));
     }
 
     IEnumerator Boost(float multiplier, float seconds)
     {
         speedMultiplier = multiplier;
-
         yield return new WaitForSeconds(seconds);
-
         speedMultiplier = 1f;
         boost = null;
     }

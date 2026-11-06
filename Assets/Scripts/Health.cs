@@ -1,28 +1,42 @@
-
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     [SerializeField] int max = 3;
-    int current;
+    [SerializeField] float iFrames = 1f;
 
-    void Awake()
-    {
-        current = max;
-    }
+    public bool shielded;
+
+    int current;
+    float invulnerableUntil;
+
+    public int Current => current;
+    public int Max => max;
+
+    void Awake() => current = max;
 
     public bool TakeDamage(int amount)
     {
-        if (current <= 0) return false;
+        // Already dead, or still invulnerable — ignore hit
+        if (current <= 0 || Time.time < invulnerableUntil) return false;
+
+        invulnerableUntil = Time.time + iFrames;
+
+        // Shield absorbs one hit then disappears
+        if (shielded) { shielded = false; return false; }
 
         current -= amount;
-        Debug.Log("Player health: " + current);
+        GameManager.Instance.UpdateUI();
 
-        if (current <= 0)
-        {
-            Debug.Log("Player defeated!");
-        }
+        if (current <= 0) GameManager.Instance.PlayerDied();
 
-        return true;
+        return true;   // hit was actually taken
+    }
+
+    public void Restore(float protection)
+    {
+        current = max;
+        invulnerableUntil = Time.time + protection;
+        GameManager.Instance.UpdateUI();
     }
 }
