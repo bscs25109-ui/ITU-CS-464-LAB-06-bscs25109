@@ -1,10 +1,9 @@
 # 🎮 Unity 3D Arena Game
 
 ## 🏗️ Lecture 07: Base Build
-Core gameplay foundation:
-- Player movement using Rigidbody.
+- Rigidbody-based player movement.
 - Health and lives system.
-- UI for score and health.
+- Score and UI management.
 - Enemy patrol using waypoints.
 - Hazards with damage and knockback.
 - Coins and coin spawning.
@@ -16,14 +15,11 @@ Core gameplay foundation:
 
 **Gameplay:**
 - No timer or enemies.
-- Learn basic player controls.
+- Learn basic movement controls.
 - Avoid hazards that reduce health/lives.
 - Collect all 5 coins.
 
-**UI:**
-- Score and Lives.
-- Win and Lose panels.
-- Restart button.
+**UI:** Score, Lives, Win/Lose panels, Restart button.
 
 ## ⏱️ Level 2: Race the Clock
 
@@ -32,15 +28,24 @@ Core gameplay foundation:
 **Gameplay:**
 - Central maze wall.
 - 3 pulsing hazards.
-- 1 patrolling enemy.
+- 3 patrolling enemy.
 - No health or lives system.
 - Hazards and enemies apply massive knockback.
 
-**UI:**
-- 60-second countdown timer.
-- Timer turns red below 10 seconds.
-- Win and Lose panels.
-- Restart button.
+**UI:** Countdown timer (red below 10 seconds), Win/Lose panels, Restart button.
+
+## 🪙 Level 3: Coin Rush
+
+**Objective:** Collect 10 coins within 45 seconds.
+
+**Gameplay:**
+- Arena divided into 4 quadrants using cross-walls.
+- 3 patrolling enemies.
+- Enemies apply massive knockback.
+- Smart coin spawning using `Physics.CheckSphere`.
+- Coins spawn only in empty floor spaces without overlapping walls or enemies.
+
+**UI:** Countdown timer, Score tracker (0/10), Win/Lose panels, Restart button.
 
 ## 📜 Script Directory
 
@@ -48,7 +53,7 @@ Core gameplay foundation:
 - `PlayerController.cs` – Player movement.
 - `PowerUp.cs` – Speed and Shield power-ups.
 - `Coin.cs` – Coin collection.
-- `CoinSpawner.cs` – Coin spawning.
+- `CoinSpawner.cs` – Coin spawning with collision checking.
 - `EnemyPatrol.cs` – Enemy waypoint movement.
 
 ### Level 1
@@ -57,21 +62,25 @@ Core gameplay foundation:
 - `Hazard.cs` – Hazard damage and knockback.
 
 ### Level 2
-- `Level2Manager.cs` – Timer, Win/Lose UI, and restart.
+- `Level2Manager.cs` – 60-second timer, Win/Lose UI, and restart.
 - `Level2ExitZone.cs` – Detects exit and triggers victory.
 - `Level2Danger.cs` – Applies massive knockback.
 
-## 🕹️ Controls
+### Level 3
+- `Level3Manager.cs` – 45-second timer, coin score, Win/Lose UI, and restart.
+- `Level3Coin.cs` – Adds collected coins to the Level 3 Manager.
+- `Level2Danger.cs` – Reused for enemy knockback.
 
+## 🕹️ Controls
 - **Move:** `W`, `A`, `S`, `D` or Arrow Keys.
 - **Interact:** Walk into objects to collect or trigger them.
 
 ## 🎯 Learning Outcomes
-
 - Rigidbody physics and player movement.
 - Collision detection and triggers.
 - Health and UI management.
 - Collectibles and power-ups.
 - Enemy AI and waypoint patrol.
-- Knockback mechanics.
-- Timers and game-state management.
+- Physics-based knockback.
+- Smart spawning using `Physics.CheckSphere`.
+- Countdown timers and game-state management.
