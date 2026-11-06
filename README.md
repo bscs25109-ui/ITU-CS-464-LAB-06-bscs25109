@@ -47,6 +47,24 @@
 
 **UI:** Countdown timer, Score tracker (0/10), Win/Lose panels, Restart button.
 
+## 🏃‍♂️ Level 4: Survive the Onslaught
+
+**Objective:** Survive for 45 seconds. When the timer reaches 0, YOU WIN!
+
+**Gameplay:**
+- Enemies normally patrol between waypoints.
+- Enemies chase the player when they enter their `chaseRange` (6 units).
+- Enemies instantly catch the player within `catchRadius` (1.3 units).
+- Touching any hazard causes instant death.
+- No health or lives system.
+
+**UI:**
+- 45-second survival timer.
+- Timer turns green below 10 seconds.
+- Win Panel: "You Survived!"
+- Lose Panel: Displays a custom message depending on the cause of death.
+
+  
 ## 📜 Script Directory
 
 ### Core & Lecture 07
@@ -71,6 +89,12 @@
 - `Level3Coin.cs` – Adds collected coins to the Level 3 Manager.
 - `Level2Danger.cs` – Reused for enemy knockback.
 
+## 📜 Level 4 Scripts
+
+- `Level4Manager.cs` – Handles survival timer, Win/Lose UI, and custom lose messages.
+- `Level4EnemyAI.cs` – Controls waypoint patrolling, player chasing, and instant catching.
+- `Level4Hazard.cs` – Instantly triggers the Lose panel when the player touches a hazard.
+- 
 ## 🕹️ Controls
 - **Move:** `W`, `A`, `S`, `D` or Arrow Keys.
 - **Interact:** Walk into objects to collect or trigger them.
