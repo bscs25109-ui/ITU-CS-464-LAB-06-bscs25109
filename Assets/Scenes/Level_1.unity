@@ -718,9 +718,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3746305692552703806, guid: 27841b13748b7cf4b994e8e543e95807, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
     - target: {fileID: 3976385694846810355, guid: 27841b13748b7cf4b994e8e543e95807, type: 3}
       propertyPath: m_Name
       value: lecture 7 build
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707649094335021897, guid: 27841b13748b7cf4b994e8e543e95807, type: 3}
+      propertyPath: m_text
+      value: 'Restart
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707649094335021897, guid: 27841b13748b7cf4b994e8e543e95807, type: 3}
+      propertyPath: m_fontSize
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707649094335021897, guid: 27841b13748b7cf4b994e8e543e95807, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707649094335021897, guid: 27841b13748b7cf4b994e8e543e95807, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 6208827779375515555, guid: 27841b13748b7cf4b994e8e543e95807, type: 3}
       propertyPath: m_text
@@ -764,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8147987675700534165, guid: 27841b13748b7cf4b994e8e543e95807, type: 3}
       propertyPath: m_text
-      value: 'YOU WIN LEVEL 1 '
+      value: Level 1 Complete!
       objectReference: {fileID: 0}
     - target: {fileID: 8147987675700534165, guid: 27841b13748b7cf4b994e8e543e95807, type: 3}
       propertyPath: m_fontSize
