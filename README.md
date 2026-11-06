@@ -64,7 +64,24 @@
 - Win Panel: "You Survived!"
 - Lose Panel: Displays a custom message depending on the cause of death.
 
-  
+  ## 👑 Level 5: The Final Challenge
+
+**Objective:** Collect 5 coins to unlock the Exit Zone, then reach it within 60 seconds.
+
+**Gameplay:**
+- Arena with cross-walls.
+- Smart chasing enemies.
+- Instant-death hazards.
+- Exit Zone remains locked until all 5 coins are collected.
+- Reach the unlocked Exit Zone before time runs out to win.
+
+**UI:**
+- 60-second countdown timer.
+- Coin score tracker (0/5).
+- Exit locked/unlocked status.
+- Win/Lose panels.
+
+- 
 ## 📜 Script Directory
 
 ### Core & Lecture 07
@@ -94,7 +111,15 @@
 - `Level4Manager.cs` – Handles survival timer, Win/Lose UI, and custom lose messages.
 - `Level4EnemyAI.cs` – Controls waypoint patrolling, player chasing, and instant catching.
 - `Level4Hazard.cs` – Instantly triggers the Lose panel when the player touches a hazard.
-- 
+
+  ## 📜 Level 5 Scripts
+
+- `Level5Manager.cs` – Handles timer, coin score, exit unlocking, Win/Lose UI, and restart.
+- `Level5Coin.cs` – Handles coin collection and score updates.
+- `Level5ExitZone.cs` – Checks whether the exit is unlocked and triggers victory.
+- `Level5EnemyAI.cs` – Controls enemy patrol and smart chasing behavior.
+- `Level5Hazard.cs` – Instantly triggers the Lose state when the player touches a hazard.
+
 ## 🕹️ Controls
 - **Move:** `W`, `A`, `S`, `D` or Arrow Keys.
 - **Interact:** Walk into objects to collect or trigger them.
