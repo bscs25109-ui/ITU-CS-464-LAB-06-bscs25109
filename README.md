@@ -1,84 +1,86 @@
-# \# 🎮 Unity 3D Arena Game - Project Documentation
+# 🎮 Unity 3D Arena Game
 
-# 
+## 🏗️ Lecture 07: Base Build
+- Rigidbody-based player movement.
+- Health and lives system.
+- Score and UI management.
+- Enemy patrol using waypoints.
+- Hazards with damage and knockback.
+- Coins and coin spawning.
+- Speed and Shield power-ups.
 
-# \## 🏗️ Lecture 07: Base Build (Foundation)
+## 🏟️ Level 1: Welcome to the Arena
 
-# \*   \*\*Core Mechanics:\*\* Player movement (`Rigidbody`), health system, and UI.
+**Objective:** Collect 5 coins to win.
 
-# \*   \*\*Enemies \& Hazards:\*\* Patrolling enemies using waypoints and hazards that deal damage/knockback.
+**Gameplay:**
+- No timer or enemies.
+- Learn basic movement controls.
+- Avoid hazards that reduce health/lives.
+- Collect all 5 coins.
 
-# \*   \*\*Pickups:\*\* Coins (spawning/collecting) and Power-ups (Speed/Shield).
+**UI:** Score, Lives, Win/Lose panels, Restart button.
 
-# 
+## ⏱️ Level 2: Race the Clock
 
-# \## 🏟️ Level 1: "Welcome to the Arena"
+**Objective:** Reach the green Exit Zone within 60 seconds.
 
-# \*   \*\*Objective:\*\* Collect 5 coins to win. No timer, no enemies.
+**Gameplay:**
+- Central maze wall.
+- 3 pulsing hazards.
+- 3 patrolling enemy.
+- No health or lives system.
+- Hazards and enemies apply massive knockback.
 
-# \*   \*\*Gameplay:\*\* Focuses on learning controls. Touching hazards reduces health/lives. 
+**UI:** Countdown timer (red below 10 seconds), Win/Lose panels, Restart button.
 
-# \*   \*\*UI:\*\* Score, Lives, Win/Lose panels. Buttons simply restart the level.
+## 🪙 Level 3: Coin Rush
 
-# 
+**Objective:** Collect 10 coins within 45 seconds.
 
-# \## ⏱️ Level 2: "Race the Clock"
+**Gameplay:**
+- Arena divided into 4 quadrants using cross-walls.
+- 3 patrolling enemies.
+- Enemies apply massive knockback.
+- Smart coin spawning using `Physics.CheckSphere`.
+- Coins spawn only in empty floor spaces without overlapping walls or enemies.
 
-# \*   \*\*Objective:\*\* Reach the green Exit Zone before 60 seconds run out.
+**UI:** Countdown timer, Score tracker (0/10), Win/Lose panels, Restart button.
 
-# \*   \*\*Gameplay:\*\* Features a central maze wall, 3 pulsing hazards, and a patrolling enemy.
+## 📜 Script Directory
 
-# \*   \*\*No Health System:\*\* Instead of taking damage, touching hazards/enemies applies a \*\*massive knockback\*\*, throwing the player across the arena and wasting time.
+### Core & Lecture 07
+- `PlayerController.cs` – Player movement.
+- `PowerUp.cs` – Speed and Shield power-ups.
+- `Coin.cs` – Coin collection.
+- `CoinSpawner.cs` – Coin spawning with collision checking.
+- `EnemyPatrol.cs` – Enemy waypoint movement.
 
-# \*   \*\*UI:\*\* Countdown timer (turns red under 10s) and Win/Lose panels.
+### Level 1
+- `GameManager.cs` – Score, health, lives, and game states.
+- `Health.cs` – Player health management.
+- `Hazard.cs` – Hazard damage and knockback.
 
-# 
+### Level 2
+- `Level2Manager.cs` – 60-second timer, Win/Lose UI, and restart.
+- `Level2ExitZone.cs` – Detects exit and triggers victory.
+- `Level2Danger.cs` – Applies massive knockback.
 
-# \---
+### Level 3
+- `Level3Manager.cs` – 45-second timer, coin score, Win/Lose UI, and restart.
+- `Level3Coin.cs` – Adds collected coins to the Level 3 Manager.
+- `Level2Danger.cs` – Reused for enemy knockback.
 
-# 
+## 🕹️ Controls
+- **Move:** `W`, `A`, `S`, `D` or Arrow Keys.
+- **Interact:** Walk into objects to collect or trigger them.
 
-# \## 📜 Script Directory
-
-# 
-
-# \### Core \& Lecture 7 Scripts
-
-# \*   `PlayerController.cs` - Player movement.
-
-# \*   `PowerUp.cs` - Speed and shield logic.
-
-# \*   `Coin.cs` / `CoinSpawner.cs` - Coin collection and area-based spawning.
-
-# \*   `EnemyPatrol.cs` - Enemy waypoint movement.
-
-# 
-
-# \### Level 1 Scripts
-
-# \*   `GameManager.cs` - Handles Score, Health, and Lives.
-
-# \*   `Health.cs` / `Hazard.cs` - Base health logic and damage/knockback.
-
-# 
-
-# \### Level 2 Scripts
-
-# \*   `Level2Manager.cs` - Handles the 60s timer, Win/Lose UI, and Restart. (Replaces GameManager).
-
-# \*   `Level2ExitZone.cs` - Triggers the Win state when the player enters the green zone.
-
-# \*   `Level2Danger.cs` - Applies massive knockback to the player (replaces Health/Hazard).
-
-# 
-
-# \---
-
-# 
-
-# \## 🕹️ Controls
-
-# \*   \*\*Move:\*\* `W`, `A`, `S`, `D` or Arrow Keys.
-
-# \*   \*\*Interact:\*\* Walk into objects to collect or trigger them.
-
+## 🎯 Learning Outcomes
+- Rigidbody physics and player movement.
+- Collision detection and triggers.
+- Health and UI management.
+- Collectibles and power-ups.
+- Enemy AI and waypoint patrol.
+- Physics-based knockback.
+- Smart spawning using `Physics.CheckSphere`.
+- Countdown timers and game-state management.
